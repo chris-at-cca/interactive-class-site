@@ -1,0 +1,12 @@
+title: Image
+
+fields: 
+    title:
+        label: Title
+        type: text
+    alt:
+        label: Alt
+        type: text
+    caption:
+        label: Caption
+        type: textarea

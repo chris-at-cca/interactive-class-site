@@ -1,0 +1,30 @@
+title: Interview
+
+columns:
+  left: 
+    width: 2/3
+    sections:
+      content: 
+        type: fields
+        fields:
+          year:
+            type: text  
+          excerpt:
+            type: textarea
+            size: large
+          link url:
+            type: text              
+          link text:
+            type: text              
+  right: 
+    width: 1/3
+    sections:
+      cover:
+        headline: Cover
+        template: cover
+        type: files
+      gallery: 
+        type: files
+        layout: cards
+        image: 
+          cover: true            

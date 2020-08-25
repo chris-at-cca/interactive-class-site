@@ -1,0 +1,6 @@
+headline: Interviews
+type: pages
+info: "{{ page.images.count }} images"
+template: interview
+image:
+    cover: true

@@ -1,0 +1,13 @@
+title: Projects
+
+sections:
+    drafts: 
+      extends: sections/projects
+      headline: Drafts
+      status: drafts
+      layout: list
+
+    published: 
+      extends: sections/projects
+      headline: Published Projects
+      status: published

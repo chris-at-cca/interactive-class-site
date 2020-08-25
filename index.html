@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Current Weather</title>
+</head>
+<body>
+  <div id="weatherA">
+    <div id="descriptionA"></div>
+    <h1 id="tempA"></h1>
+    <div id="locationA"></div>
+  </div>
+
+  <div id="weatherB">
+    <div id="descriptionB"></div>
+    <h1 id="tempB"></h1>
+    <div id="locationB"></div>
+  </div>
+
+  <script lang="text/javascript">
+  
+    function weatherBalloonA( cityID ) {
+      var key = '0ad67a7e935154be37ffd8ad9a87b02f';
+      fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
+      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(data) {
+      drawWeatherA(data); // Call drawWeather
+    })
+    .catch(function() {
+      // catch any errors
+    });
+    }
+
+    function weatherBalloonB( cityID ) {
+      var key = '0ad67a7e935154be37ffd8ad9a87b02f';
+      fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
+      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(data) {
+      drawWeatherB(data); // Call drawWeather
+    })
+    .catch(function() {
+      // catch any errors
+    });
+    }
+    
+    window.onload = function() {
+      weatherBalloonA( 1264527 );
+      weatherBalloonB( 1705545 );
+    }
+
+    function drawWeatherA( d ) {
+      var celciusA = Math.round(parseFloat(d.main.temp)-273.15);
+      var fahrenheitA = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+
+      document.getElementById('descriptionA').innerHTML = d.weather[0].description;
+      document.getElementById('tempA').innerHTML = celciusA + '&deg;';
+      document.getElementById('locationA').innerHTML = d.name;
+    }
+
+    function drawWeatherB( d ) {
+      var celciusB = Math.round(parseFloat(d.main.temp)-273.15);
+      var fahrenheitB = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+
+      document.getElementById('descriptionB').innerHTML = d.weather[0].description;
+      document.getElementById('tempB').innerHTML = celciusB + '&deg;';
+      document.getElementById('locationB').innerHTML = d.name;
+    }    
+
+  </script>
+</body>
+</html>

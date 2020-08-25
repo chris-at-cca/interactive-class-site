@@ -1,0 +1,29 @@
+Title: Project With a Sound File
+
+----
+
+Student: Charles Victor
+
+----
+
+Class: Design 101
+
+----
+
+Year: 2020
+
+----
+
+Link-url: 
+
+----
+
+Link-text: 
+
+----
+
+Tags: ambient, music
+
+----
+
+Excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies fermentum sagittis. In condimentum molestie elit, eget efficitur lacus suscipit at. Sed dapibus nibh sed nibh scelerisque, ut malesuada velit semper. Suspendisse feugiat suscipit eleifend. Quisque eleifend nisi ac tellus iaculis, at semper purus dapibus. Etiam fringilla risus quis felis porttitor feugiat sed id est. Aenean ac purus vitae mauris lobortis rutrum. Donec viverra mauris nec quam lobortis convallis.
