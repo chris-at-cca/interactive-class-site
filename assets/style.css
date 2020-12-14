@@ -158,6 +158,11 @@ canvas#drawing {
 
 .intro-text {
 	max-width: 100%;
+	opacity: 0;
+}
+
+.intro-text:hover {
+	opacity: 1;
 }
 
 .first { grid-column-start: 1; }
