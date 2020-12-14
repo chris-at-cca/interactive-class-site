@@ -19,11 +19,11 @@ $('document').ready(function(){
 
 
     var screensaverCode = '<div id="screensaver"><iframe src="'+screensaverUrls[randomScreensaver]+'"></iframe><div id="screensaver-designer">Screensaver by '+screensaverDesigners[randomScreensaver]+'</div></div>';
-    // $('body').append(screensaverCode);
+    $('body').append(screensaverCode);
 
     var mouseIdle;
     var screensaverState = false;
-    var timeIdle = 3;
+    var timeIdle = 10;
 
     function displayScreensaver(){
         $('#screensaver').addClass('show');
