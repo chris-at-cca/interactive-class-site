@@ -42,8 +42,9 @@
     </div>
     
     <div id="grid">
+      
       <!-- loop -->  
-      <div v-for="block of blocks.contents" class="blocks" :class="block.connected_by_username">
+      <div v-for="block of blocks.contents" class="blocks" v-bind:class="block.connected_by_username">
         
         <!-- if link or media(?) -->
         <div v-if="block.class == 'Link' || block.class == 'Media'">
@@ -110,7 +111,7 @@
       mounted() {
         axios
           // Switch out channel here when making a new page: https://api.are.na/v2/channels/{{automation-me26uckrzh8}}/contents/
-          .get('https://api.are.na/v2/channels/inspiration-1trx3t6w3-w/')
+          .get('https://api.are.na/v2/channels/library-re9nsdmwmvm/')
           .then(response => (this.blocks = response.data))
       }
     })

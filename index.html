@@ -34,6 +34,7 @@
     <ul>
       <li><a href="code-samples.html">Code Samples</a></li>
       <li><a href="inspiration-1trx3t6w3-w.html">Inspiration</a></li>
+      <li><a href="library-re9nsdmwmvm.html">Library</a></li>
       <li><a href="people.html">Designers</a></li>
     </ul>
   </nav>
@@ -51,9 +52,10 @@
           <div v-if="channel.contents[0].class == 'Link' || channel.contents[0].class == 'Media' || channel.contents[0].class == 'Image'">
             <img class="image"v-bind:src="channel.contents[0].image.display.url" alt="">
           </div>
-
-          <div class="block-title">TITLE: {{channel.contents[0].title}}</div>
-          <div class="channel-title">CHANNEL TITLE: {{channel.title}}</div>
+          <div class="description">
+            <h2>{{channel.contents[0].title}}</h2>
+            <span>from {{channel.title}}</span>
+          </div>
         </a>
       </div>
     </div>

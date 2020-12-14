@@ -12,10 +12,11 @@ body {
 	font-size: 14px;
 }
 
-h1, h2, .text-holder {
+h1, h2, #people-grid {
 	font-family: neue-haas-grotesk-display, sans-serif;
 	font-weight: 500;
 	font-style: normal;	
+	font-size: 21px;
 }
 
 a {
@@ -122,10 +123,10 @@ canvas#drawing {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: auto;
-	grid-column-gap: 10px;
-	grid-row-gap: 10px; 
+	grid-column-gap: 15px;
+	grid-row-gap: 15px; 
 
-	width: calc(100vw - 40px);
+	width: calc(100vw - 60px);
     margin: 0px auto 100px;	
 }
 
@@ -133,9 +134,10 @@ canvas#drawing {
 	position: relative;
 	border: 1px solid black;
 	overflow: hidden;
+	background: white;
 
 	width: 100%;
-	margin: 10px 10px 30px;
+	margin: 0px 0px 20px;
 	
 	box-shadow:
     /* The second layer */
@@ -248,11 +250,33 @@ h2{
 	margin-bottom: 10px;
 }
 
+/* people page */
+
+#people-grid {
+	column-count: 3;
+	width: calc(100vw - 60px);
+    margin: 0px auto 100px;		
+}
+
+#people-grid .designer {
+	break-inside: avoid-column;	
+}
+
+.designer div{
+	display: inline;
+}
+
+.designer a::after{
+	content: '↗';
+	font-size: 18px;
+	padding-left: 5px;
+}
+
 /* color coding */
 
-.hamamoto { 
+.blocks.hamamoto { 
 	border: 1px solid rgba(0,0,0,1);
 	background-color: rgba(0,255,0,.05); 
 }
-.hamamoto .username { color: rgb(0,255,0); }
+.designer.hamamoto, .designer.hamamoto a, .hamamoto .username { color: rgb(0,255,0); }
 

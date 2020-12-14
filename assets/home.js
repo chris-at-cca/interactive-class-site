@@ -25,7 +25,7 @@ $('document').ready(function(){
 
 
     $(document).mousemove(function(event){
-        $("span").text(event.pageX + ", " + event.pageY);
+        $(".coordinates").text(event.pageX + ", " + event.pageY);
     });
 
     function getMousePos(canvas, evt) {
