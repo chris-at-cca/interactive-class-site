@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CCA Interactive 2: Inspiration</title>
+  
+  <!-- styles -->
+  <link href="assets/style.css" rel="stylesheet">
+
+  <!-- adobe fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/ygs2wcs.css">
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/screensaver.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="index.html" id="logo" class="">
+      Interactive 2
+    </a>
+    <ul>
+      <li><a href="code-samples.html">Code Samples</a></li>
+      <li><a href="inspiration-1trx3t6w3-w.html">Inspiration</a></li>
+      <li><a href="people.html">Designers</a></li>
+    </ul>
+  </nav>
+
+  <!-- page -->
+  <div id="app">
+    
+    <div class="channel-title">
+      <h1>{{blocks.title}}</h1>
+    </div>
+    
+    <div id="grid">
+      
+      <!-- loop -->  
+      <div v-for="block of blocks.contents" class="blocks" v-bind:class="block.connected_by_username">
+        
+        <!-- if link or media(?) -->
+        <div v-if="block.class == 'Link' || block.class == 'Media'">
+          <a v-bind:href="block.source.url" target="_blank" class="url"> 
+            <div class="image-holder">
+              <img class="image" v-bind:src="block.image.display.url" alt="{{block.description}}">
+              <div class="alt">{{block.description}}</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- if text -->
+        <div v-if="block.class == 'Text'">
+          <div class="text-holder"> 
+            {{block.content}}
+          </div>
+        </div>
+
+        <!-- if attachment -->
+        <div v-if="block.class == 'Attachment'">
+          <div class="text-holder"> 
+            <a v-bind:href="block.attachment.url" target="_blank">Download {{block.title}}</a>
+          </div>
+        </div>
+
+        <!-- if image -->
+        <div v-if="block.class == 'Image'" class=""> 
+          <img class="image" v-bind:src="block.image.display.url" alt="{{block.description}}">
+        </div>
+
+
+        <!-- meta info -->
+        <div class="description">
+          <div class="block-title">
+            <h2>{{block.title}}</h2>
+          </div>
+
+          <div class="meta">
+            <div class="connected_by">
+              Connected by: <span class="username">{{block.connected_by_username}}</span><!-- <br /> -->
+              <!-- at: {{block.connected_at}} -->
+            </div>
+
+            <div class="comment_count"> 
+              {{block.comment_count}} Comments
+            </div>
+            <div class="arena-block">
+              <a v-bind:href="'http://are.na/block/' + block.id" target="_blank">View on are.na</a>
+            </div>
+          </div>
+
+
+      </div>
+      <!-- end loop-->
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        blocks: []
+      },
+      mounted() {
+        axios
+          // Switch out channel here when making a new page: https://api.are.na/v2/channels/{{automation-me26uckrzh8}}/contents/
+          .get('https://api.are.na/v2/channels/code-samples/')
+          .then(response => (this.blocks = response.data))
+      }
+    })
+  </script>
+
+</body>
+
+</html>

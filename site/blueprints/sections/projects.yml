@@ -1,6 +1,0 @@
-headline: Projects
-type: pages
-info: "{{ page.images.count }} images"
-template: project
-image:
-    cover: true

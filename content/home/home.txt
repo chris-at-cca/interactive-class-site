@@ -1,5 +1,0 @@
-Title: Home
-
-----
-
-Text: Traditionally the class site is designed and edited by faculty to display practical information like the schedule, syllabus, display student work, and lastly offer links to resources like readings and technical examples. Each semester a new version replaces the old. Our task as a group is to reimagine the class site as an ongoing resource center for interactive learning. The purpose is to create a mutable online tool that will be useful to you, to future students, and to the greater public.

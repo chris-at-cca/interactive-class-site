@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CCA Interactive 2</title>
+  
+  <!-- styles -->
+  <link href="assets/style.css" rel="stylesheet">
+
+  <!-- adobe fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/ygs2wcs.css">
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/screensaver.js"></script>
+  <script src="assets/home.js"></script>
+
+  
+</head>
+
+<body>
+  <canvas id="drawing">
+  </canvas>
+  <!-- nav -->
+  <nav>
+    <a href="index.html" id="logo" class="">
+      Interactive 2
+    </a>
+    <ul>
+      <li><a href="code-samples.html">Code Samples</a></li>
+      <li><a href="inspiration-1trx3t6w3-w.html">Inspiration</a></li>
+      <li><a href="people.html">Designers</a></li>
+    </ul>
+  </nav>
+
+  <!-- page -->
+  <div id="app">
+    
+<!--     <div class="group-name">
+      GROUP NAME: {{group.name}}
+    </div> -->
+    <div id="landing-grid">
+      <div v-for="channel of blocks.channels" class="channels" v-colors>
+        <a v-bind:href="channel.slug +'.html'" class="url"> 
+          <!-- if link or media(?) or Image -->
+          <div v-if="channel.contents[0].class == 'Link' || channel.contents[0].class == 'Media' || channel.contents[0].class == 'Image'">
+            <img class="image"v-bind:src="channel.contents[0].image.display.url" alt="">
+          </div>
+
+          <div class="block-title">TITLE: {{channel.contents[0].title}}</div>
+          <div class="channel-title">CHANNEL TITLE: {{channel.title}}</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        group: [],
+        blocks: []
+      },
+      directives: {
+        colors: {
+          inserted(el) {
+            //the current dom element
+            // el.style.backgroundColor = `#${((Math.random() * 0xffffff) << 0 ).toString(16)}`;
+            const colpos = ["first", "second", "third", "fourth"];
+            const randomcol = Math.floor(Math.random() * colpos.length);
+            const rowpos = ["one", "two", "three"];
+            const randomrow = Math.floor(Math.random() * rowpos.length);
+            el.classList.add(colpos[randomcol]);
+            el.classList.add(rowpos[randomrow]);
+          }
+        }
+      },
+      mounted() {
+        axios
+          // Switch out group here when making a new page: https://api.are.na/v2/groups/{{post-identity-design}}/channels
+          .get('https://api.are.na/v2/groups/fall-2020-interactive-2/channels')
+          .then(response => (this.blocks = response.data)),
+
+        axios
+          // Switch out group here when making a new page: https://api.are.na/v2/groups/{{post-identity-design}}/
+          .get('https://api.are.na/v2/groups/fall-2020-interactive-2/')
+          .then(response => (this.group = response.data))
+      }
+    }) 
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+/* reset */
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: neue-haas-grotesk-text, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}
+
+h1, h2, .text-holder {
+	font-family: neue-haas-grotesk-display, sans-serif;
+	font-weight: 500;
+	font-style: normal;	
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+/* screensaver */
+
+#screensaver {
+	opacity: 0;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	pointer-events: none;
+	transition: all 800ms ease;
+	top: 0px;
+	left: 0px;
+
+	z-index: 10000;
+}
+
+#screensaver.show {
+	opacity: 1;
+	pointer-events: all;
+}
+
+iframe {
+	height: 100vh;
+	width: 100vw;
+	border: none;
+}
+
+#screensaver-designer {
+	padding: 20px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: white;
+	text-shadow: 0px 0px 3px black;
+}
+
+/* navigation */
+
+nav {
+	padding: 20px;
+	background: transparent;
+}
+
+#logo {
+	position: relative;
+	z-index: 1;
+	float: left;
+}
+
+#logo::before {
+	content: '🌏';
+}
+
+nav ul{
+	list-style-type: none;
+	text-align: right;
+}
+
+nav li {
+	display: inline;
+}
+
+nav li a {
+	border-radius: 20px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	position: relative;
+	z-index: 1;	
+}
+
+/* page */
+
+#app {
+	padding: 200px 0px;
+	z-index: 1;
+}
+
+.channel-title {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+/* landing page */
+
+canvas#drawing {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: transparent;
+	z-index: 0;
+}
+
+.emoji {
+	font-size: 20px;
+}
+
+#landing-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px; 
+
+	width: calc(100vw - 40px);
+    margin: 0px auto 100px;	
+}
+
+.channels {
+	position: relative;
+	border: 1px solid black;
+	overflow: hidden;
+
+	width: 100%;
+	margin: 10px 10px 30px;
+	
+	box-shadow:
+    /* The second layer */
+    8px 8px 0 -5px #fff,
+    /* The second layer shadow */
+    8px 8px 1px -4px rgba(0,0,0,1),
+    /* The third layer */
+    17px 17px 0 -10px #fff,
+    /* The third layer shadow */
+    17px 17px 1px -9px rgba(0,0,0,1);  
+}
+
+.first { grid-column-start: 1; }
+.second { grid-column-start: 2; }
+.third { grid-column-start: 3; }
+.fourth { grid-column-start: 4; }
+
+.one { grid-row-start: 1; }
+.two { grid-row-start: 2; }
+.three { grid-row-start: 3; }
+.four { grid-row-start: 4; }
+
+/* detail page */
+
+#grid {
+/*	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px; 
+*/	
+	width: calc(100vw - 40px);
+    margin: 0px auto 100px;
+
+	display: flex;  
+	flex-direction: column-reverse;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	/*align-items: center; */
+}
+
+.blocks {
+	position: relative;
+	border: 1px solid black;
+	overflow: hidden;
+
+	width: calc(25% - 20px);
+	margin: 10px 10px 30px;
+}
+
+img.image {
+	max-width: 100%;
+	height: auto;
+}
+
+/* description hover */
+
+.image-holder {
+	width: 100%;
+	height: auto;
+}
+
+.image-holder .alt{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 10px;
+	opacity: 0;
+}
+
+.image-holder:hover .alt{
+	opacity: 1;
+}
+
+.image-holder .image{
+	opacity: 1;
+	pointer-events: none;
+}
+
+.image-holder:hover .image{
+	opacity: .05;
+}
+
+/* text module */
+
+.text-holder {
+	background: #fafafa;
+	/*font-size: 21px;*/
+	padding: 20px;
+}
+
+
+/* text description */
+
+.description {
+	padding: 15px;
+}
+
+h2{
+	margin-bottom: 10px;
+}
+
+.meta {
+	font-size: 12px;
+}
+
+.connected_by {
+	margin-bottom: 10px;
+}
+
+/* color coding */
+
+.hamamoto { 
+	border: 1px solid rgba(0,0,0,1);
+	background-color: rgba(0,255,0,.05); 
+}
+.hamamoto .username { color: rgb(0,255,0); }
+

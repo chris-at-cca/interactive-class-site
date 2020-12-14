@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CCA Interactive 2: Inspiration</title>
+  
+  <!-- styles -->
+  <link href="assets/style.css" rel="stylesheet">
+
+  <!-- adobe fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/ygs2wcs.css">
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/screensaver.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <!-- nav -->
+  <nav>
+    <a href="index.html" id="logo" class="">
+      Interactive 2
+    </a>
+    <ul>
+      <li><a href="code-samples.html">Code Samples</a></li>
+      <li><a href="inspiration-1trx3t6w3-w.html">Inspiration</a></li>
+      <li><a href="people.html">Designers</a></li>
+    </ul>
+  </nav>
+
+  <!-- page -->
+  <div id="app">
+    
+    <div class="channel-title">
+      <h1>{{group.name}}</h1>
+    </div>
+    USER NAMES:
+    <div v-for="user of group.users" class="channels">
+      <div class="user-name">{{user.username}}</div>
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        group: [],
+      },
+      mounted() {
+        axios
+          // Switch out channel here when making a new page: https://api.are.na/v2/groups/{{post-identity-design}}/
+          .get('https://api.are.na/v2/groups/fall-2020-interactive-2/')
+          .then(response => (this.group = response.data))
+      }
+    })
+  </script>
+</body>
+
+</html>
