@@ -2,16 +2,41 @@ $('document').ready(function(){
     
     // random emoji
 
-    var emoji = ["🌏", "☃️", "😞", "👽", "😻", "🐼", "🥇"];
-    var randomemoji = Math.floor(Math.random() * emoji.length);
+    var i;
+    for (i = 0; i < 1; i++) {
+        
+        var emoji = ["🌏", "☃️", "😞", "👽", "😻", "🐼", "🥇"];
+        var randomemoji = Math.floor(Math.random() * emoji.length);
+
+        var wW = $(window).innerWidth();
+        var wH= $(window).innerHeight();
+
+        var randPosX = Math.floor((Math.random()*wW));
+        var randPosY = Math.floor((Math.random()*wH));
+
+        $('body').append('<div class="random-emoji" style="left: '+randPosX+'px; top:'+randPosY+'px;">'+emoji[randomemoji]+'</div>');
+
+    }
+
+    var j;
+    for (j = 0; j < 1; j++) {
+        
+        var image = ["assets/img/cory-arcangel-cca.gif", "assets/img/mindy-seu.gif", "assets/img/scs.png", "assets/img/yhsong.gif", "assets/img/one-line-to-motion.gif"];
+        var randomimage = Math.floor(Math.random() * image.length);
+
+        var colpos = ["first", "second", "third", "fourth"];
+        var randomcol = Math.floor(Math.random() * colpos.length);
+        var rowpos = ["one", "two", "three"];
+        var randomrow = Math.floor(Math.random() * rowpos.length);
+        $('#landing-grid').append('<img class="random-image '+colpos[randomcol]+' '+rowpos[randomrow]+'" src="'+image[randomimage]+'" />');
+    }
 
     var colpos = ["first", "second", "third", "fourth"];
     var randomcol = Math.floor(Math.random() * colpos.length);
-
-    var rowpos = ["one", "two", "three", "four"];
+    var rowpos = ["one", "two", "three"];
     var randomrow = Math.floor(Math.random() * rowpos.length);
+    $('.intro-text').addClass(''+colpos[randomcol]+', '+rowpos[randomrow]+'');
 
-    $('#landing-grid').append('<div class="emoji '+rowpos[randomrow]+' '+colpos[randomcol]+'">'+emoji[randomemoji]+'</div>');
 
     // drawing tool
     var canvas = document.getElementById("drawing");
