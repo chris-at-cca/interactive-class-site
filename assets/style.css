@@ -435,5 +435,8 @@ h2 {
 	#people-grid {
 		column-count: 2;
 	}
+	footer {
+		grid-template-columns: 1fr 1fr;
+	}
 
 }
