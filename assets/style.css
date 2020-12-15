@@ -10,6 +10,7 @@ body {
 	font-family: neue-haas-grotesk-text, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
+	letter-spacing: 0.075px;
 }
 
 h1, h2, #people-grid {
@@ -17,6 +18,7 @@ h1, h2, #people-grid {
 	font-weight: 500;
 	font-style: normal;	
 	font-size: 21px;
+	letter-spacing: 0.75px;
 }
 
 #people-grid {
@@ -26,6 +28,16 @@ h1, h2, #people-grid {
 a {
 	text-decoration: none;
 	color: black;
+}
+
+li a:hover {
+	background: black;
+	color: white;
+}
+
+a.current-page {
+	background: black;
+	color: white;
 }
 
 /* screensaver */
@@ -39,7 +51,6 @@ a {
 	transition: all 800ms ease;
 	top: 0px;
 	left: 0px;
-
 	z-index: 10000;
 }
 
@@ -175,6 +186,17 @@ canvas#drawing {
 .three { grid-row-start: 3; }
 .four { grid-row-start: 4; }
 
+
+footer {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	font-size: 11px;
+	line-height: 15px;
+	color: gray;
+	position: absolute;
+	padding: 20px;
+}
+
 /* detail page */
 
 #grid {
@@ -253,7 +275,7 @@ img.image {
 	padding: 15px;
 }
 
-h2{
+h2 {
 	margin-bottom: 10px;
 }
 
@@ -300,25 +322,25 @@ h2{
 
 #about-grid {
 	column-count: 3;
-	column-gap: 20px;
+	column-gap: 40px;
 	width: calc(100vw - 60px);
     margin: 0px auto 100px;		
 	position: relative;	
     z-index: 1;
 }
 
-#about-grid p{
-	break-inside: avoid-column;	
-	margin-bottom: 20px;
+#about-grid p {
+	break-inside: avoid-column;
+	margin-bottom: 18px;
+	line-height: 18px;
 }
 
-
-#about-grid a::after{
+#about-grid a::after {
 	content: '↗';
 	padding-left: 2px;
 }
 
-#about-grid a:hover::after{
+#about-grid a:hover::after {
 	content: '↗';
 	padding-left: 5px;
 }
